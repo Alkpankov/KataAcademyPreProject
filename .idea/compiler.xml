@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="KataAcademyPreProject" target="19" />
+      <module name="KataAcademyPreProject" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
