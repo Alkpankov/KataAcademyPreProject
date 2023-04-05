@@ -1,0 +1,28 @@
+package jm.task.core.spring.intro_spring.task_2_1_4.model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AnimalsCage {
+
+    @Autowired
+    @Qualifier("dog")
+    private Animal animal;
+
+    @Autowired
+    private Timer timer;
+
+    public void whatAnimalSay() {
+        System.out.println("Say:");
+        System.out.println(animal.toString());
+        System.out.println("At:");
+        System.out.println(getTimer().getTime());
+        System.out.println("________________________");
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+}

@@ -1,0 +1,70 @@
+Index: src/test/java/AppTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import jm.task.core.spring.intro_spring.Task_2_1_3.AppConfig;\nimport jm.task.core.spring.intro_spring.Task_2_1_3.Cat;\nimport jm.task.core.spring.intro_spring.Task_2_1_3.HelloWorld;\nimport org.junit.Assert;\nimport org.junit.Test;\nimport org.junit.runner.RunWith;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.test.context.ContextConfiguration;\nimport org.springframework.test.context.junit4.SpringJUnit4ClassRunner;\n\n\n@RunWith(SpringJUnit4ClassRunner.class)\n@ContextConfiguration(classes = AppConfig.class)\npublic class AppTest {\n\n    @Autowired\n    private ApplicationContext applicationContext;\n\n    @Test\n    public void mainTest() {\n        HelloWorld tree =\n                applicationContext.getBean(HelloWorld.class);\n        HelloWorld leaf =\n                applicationContext.getBean(HelloWorld.class);\n\n        Cat one = applicationContext.getBean(Cat.class);\n        Cat two = applicationContext.getBean(Cat.class);\n\n        Assert.assertSame(\"Тест провален, не корректная настройка бина HelloWorld\", tree, leaf);\n        Assert.assertNotSame(\"Тест провален, не корректная настройка бина Cat\", one, two);\n    }\n}\n
+===================================================================
+diff --git a/src/test/java/AppTest.java b/src/test/java/AppTest.java
+--- a/src/test/java/AppTest.java	
++++ b/src/test/java/AppTest.java	
+@@ -1,6 +1,6 @@
+-import jm.task.core.spring.intro_spring.Task_2_1_3.AppConfig;
+-import jm.task.core.spring.intro_spring.Task_2_1_3.Cat;
+-import jm.task.core.spring.intro_spring.Task_2_1_3.HelloWorld;
++import jm.task.core.spring.intro_spring.task_2_1_3.AppConfig;
++import jm.task.core.spring.intro_spring.task_2_1_3.Cat;
++import jm.task.core.spring.intro_spring.task_2_1_3.HelloWorld;
+ import org.junit.Assert;
+ import org.junit.Test;
+ import org.junit.runner.RunWith;
+Index: src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/Cat.java
+===================================================================
+diff --git a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/Cat.java b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/Cat.java
+rename from src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/Cat.java
+rename to src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/Cat.java
+--- a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/Cat.java	
++++ b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/Cat.java	
+@@ -1,4 +1,4 @@
+-package jm.task.core.spring.intro_spring.Task_2_1_3;
++package jm.task.core.spring.intro_spring.task_2_1_3;
+ 
+ public class Cat {
+     public void say() {
+Index: src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/AppConfig.java
+===================================================================
+diff --git a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/AppConfig.java b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/AppConfig.java
+rename from src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/AppConfig.java
+rename to src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/AppConfig.java
+--- a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/AppConfig.java	
++++ b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/AppConfig.java	
+@@ -1,4 +1,4 @@
+-package jm.task.core.spring.intro_spring.Task_2_1_3;
++package jm.task.core.spring.intro_spring.task_2_1_3;
+ 
+ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
+Index: src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/App.java
+===================================================================
+diff --git a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/App.java b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/App.java
+rename from src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/App.java
+rename to src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/App.java
+--- a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/App.java	
++++ b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/App.java	
+@@ -1,4 +1,4 @@
+-package jm.task.core.spring.intro_spring.Task_2_1_3;
++package jm.task.core.spring.intro_spring.task_2_1_3;
+ 
+ import org.springframework.context.ApplicationContext;
+ import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+Index: src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/HelloWorld.java
+===================================================================
+diff --git a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/HelloWorld.java b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/HelloWorld.java
+rename from src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/HelloWorld.java
+rename to src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/HelloWorld.java
+--- a/src/main/java/jm/task/core/spring/intro_spring/Task_2_1_3/HelloWorld.java	
++++ b/src/main/java/jm/task/core/spring/intro_spring/task_2_1_3/HelloWorld.java	
+@@ -1,4 +1,4 @@
+-package jm.task.core.spring.intro_spring.Task_2_1_3;
++package jm.task.core.spring.intro_spring.task_2_1_3;
+ 
+ public class HelloWorld {
+  
