@@ -22,7 +22,7 @@ public class User {
 
    @OneToOne(cascade = CascadeType.ALL)
    @JoinColumn(name = "car_series")
-   private Car uCar;
+   private Car car;
 
    public User() {}
    
@@ -35,7 +35,7 @@ public class User {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
-      this.uCar = car;
+      this.car = car;
    }
 
    public Long getId() {
@@ -71,10 +71,10 @@ public class User {
    }
 
    public void setCar(Car car) {
-      this.uCar = car;
+      this.car = car;
    }
 
    public Car getCar() {
-      return uCar;
+      return car;
    }
 }

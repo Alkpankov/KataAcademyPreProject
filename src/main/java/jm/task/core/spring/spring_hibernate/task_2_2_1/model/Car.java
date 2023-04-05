@@ -14,9 +14,6 @@ public class Car {
     @Column(name = "model")
     private String model;
 
-    @OneToOne(mappedBy = "uCar")
-    private User user;
-
     public Car(){}
     public Car(String model) {
         this.model = model;
@@ -46,11 +43,4 @@ public class Car {
                 '}';
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
