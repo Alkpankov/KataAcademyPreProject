@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Search</title>
+</head>
+<body>
+<h2>This user was not found. Try again</h2>
+<form th:method="GET" action="/users/search">
+  <label for="keyword"> Enter user id: </label>
+  <input type="number" name="keyword" id="keyword"/>
+  <input type="submit" value="Search">
+</form>
+<h3><a th:href="@{/users}">Return to main page</a></h3>
+</body>
+</html>

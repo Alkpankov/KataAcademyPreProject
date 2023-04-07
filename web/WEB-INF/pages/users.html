@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>table th, table td {padding: 5px;}</style>
+</head>
+<body>
+<div align="center">
+    <h2>Users</h2>
+    <form th:method="GET" action="/users/search">
+        <label for="keyword"> Enter user id: </label>
+        <input type="number" name="keyword" id="keyword"/>
+        <input type="submit" value="Search">
+    </form>
+    <h3><a href="/users/new">Create new User</a></h3>
+
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Age</th>-->
+<!--    </tr>-->
+
+<!--    <tr th:each="lst : ${list}">-->
+<!--        <td th:utext="${lst.getId()}">ID</td>-->
+<!--        <td>-->
+<!--            <a th:href="@{/users/{id}(id=${lst.getId()})}" th:utext="${lst.getName()}">More</a>-->
+<!--        </td>-->
+<!--        <td th:utext="${lst.getAge()}">Age</td>-->
+<!--    </tr>-->
+<!--</table>-->
+    <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="lst : ${list}">
+        <td th:utext="${lst.getId()}">ID</td>
+        <td th:utext="${lst.getName()}">Name</td>
+        <td th:utext="${lst.getEmail()}">Email</td>
+        <td th:utext="${lst.getAddress()}">Address</td>
+        <td th:utext="${lst.getAge()}">Age</td>
+        <td>
+            <a th:href="@{/users/{id}/edit(id=${lst.getId()})}">Edit</a>
+            &nbsp;&nbsp;&nbsp;
+            <form th:method="DELETE" th:action="@{/users/{id}(id=${lst.getId()})}">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    </table>
+</div>
+</body>
+</html>
